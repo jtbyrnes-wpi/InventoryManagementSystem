@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/inventory")
 public class InventoryController {
 
-    private Inventory inventory = new Inventory(100); // Initialize with a count of 100
+    private com.example.inventory.Inventory inventory = new com.example.inventory.Inventory(100); // Initialize with a count of 100
 
     // GET API: Retrieve the current inventory count
     @GetMapping
@@ -24,4 +24,16 @@ public class InventoryController {
             return "Inventory is already empty.";
         }
     }
+
+    //PUT API: for testing purposes
+    @PutMapping
+    public String addInventory() {
+        if (inventory.getCount() < 100) {
+            inventory.setCount(inventory.getCount() + 1);
+            return "Inventory updated. Current count: " + inventory.getCount();
+        } else {
+            return "Inventory is already full.";
+        }
+    }
+
 }

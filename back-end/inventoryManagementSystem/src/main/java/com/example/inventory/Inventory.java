@@ -1,4 +1,4 @@
-package com.example.inventoryManagementSystem;
+package com.example.inventory;
 
 public class Inventory {
     private int count;
